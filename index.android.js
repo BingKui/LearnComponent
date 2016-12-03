@@ -1,53 +1,26 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * React Native LearnComponent
+ * https://github.com/BingKui/LearnComponent
+ * @author 康兵奎
+ * @data 2016-12-03 15:54:49
  */
 
-import React, { Component } from 'react';
+import React, {
+	Component
+} from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+	AppRegistry
 } from 'react-native';
 
-export default class LearnComponent extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+//引入需要测试的组件
+import ListViewSimple from './componentLib/ListViewSimple/ListViewSimple';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+export default class LearnComponent extends Component {
+	render() {
+		return (
+			<ListViewSimple></ListViewSimple>
+		);
+	}
+}
 
 AppRegistry.registerComponent('LearnComponent', () => LearnComponent);
