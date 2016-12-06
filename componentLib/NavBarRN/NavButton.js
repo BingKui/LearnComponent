@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingTop: 100,
   },
-},
 });
 
 class NavButton extends React.Component {

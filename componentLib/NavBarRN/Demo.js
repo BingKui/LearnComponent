@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   colorTemp: {
-    color: 'gray',
+    color: '#fff',
   }
 });
 
@@ -41,11 +41,14 @@ class Demo extends React.Component {
     var componentScene = (
       <ScrollView contentContainerStyle={styles.scene}>
         <Text style={styles.messageTextNav}>{'This is custome NavigatorBar Component'}</Text>
+        <TouchableHighlight onPress={() => {alert('...')}}>
+          <Text>点击实验</Text>
+        </TouchableHighlight>
       </ScrollView>
     );
     return (
       <NavigatorBarRN
-        rnTitle="TitleRN-EAST"
+        rnTitle="首页"
         componentScene={componentScene}
         rnPushComponent = {NavMenu}
         rnStyle={styles.colorTemp}

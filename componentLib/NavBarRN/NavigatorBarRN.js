@@ -20,6 +20,7 @@ var styles = StyleSheet.create({
   navBarText: {
     fontSize: 16,
     marginVertical: 10,
+    color: '#fff'
   },
   navBarTitleText: {
     color: 'white',
@@ -49,50 +50,35 @@ var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
     return (
       <TouchableOpacity
-                onPress={() => navigator.pop()}
-                style={styles.navBarLeftButton}>
-                <View style={styles.navBarImageView}>
-                  <Image source = {navBarBackImg} style={styles.thumbImg}/>
-                  <Text style={[styles.navBarText,styles.navBarTextColor, route.rnStyle]}>
-                      Back
-                  </Text>
-                </View>
-            </TouchableOpacity>
+        onPress={() => navigator.pop()}
+        style={styles.navBarLeftButton}>
+        <View style={styles.navBarImageView}>
+          <Image source = {navBarBackImg} style={styles.thumbImg}/>
+          <Text style={[styles.navBarText,styles.navBarTextColor, route.rnStyle]}>
+              Back
+          </Text>
+        </View>
+      </TouchableOpacity>
     );
   },
 
   RightButton(route, navigator, index, navState) {
-    return ( < TouchableOpacity onPress = {
-        () => Alert.alert(
-          'Alert',
-          'index: ' + index + ',object: ' + route.rnPushComponent, [{
-            text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed!')
-          }, {
-            text: 'OK',
-            onPress: () => {
-              navigator.push({
-                title: 'rnPushComponentTitle',
-                name: 'rnPushComponent',
-              });
-            }
-          }, ]
-        )
-      }
-      style = {
-        styles.navBarRightButton
-      } >
-      <Text style={[styles.navBarText,styles.navBarTextColor, route.rnStyle]}>
-        Done
-      </Text> < /TouchableOpacity>
+    return (
+      <TouchableOpacity
+        onPress={() => {alert('right')}}
+        style={styles.navBarRightButton}>
+        <Text style={[styles.navBarText,styles.navBarTextColor, route.rnStyle]}>
+            Done
+        </Text>
+      </TouchableOpacity>
     );
   },
 
   Title(route, navigator, index, navState) {
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
-                {route.message}
-            </Text>
+        {route.message}
+      </Text>
     );
   },
 
@@ -138,7 +124,6 @@ class NavigatorBarRN extends React.Component {
       }
       renderScene = {
         (route, navigator) => {
-          console.log('|||||||||' + navigator.getCurrentRoutes());
           switch (route.name) {
             case 'NavigatorBarRNComponent':
               return this.state.componentScene

@@ -24,6 +24,11 @@ import Btn from './componentLib/Btn/Button';
 import TabBarDemo from './componentLib/TabBarSimple/Demo';
 
 import NavBarDemo from './componentLib/NavBarRN/Demo';
+//测试路由
+import NavigatorDemo from './componentLib/Navigator/Demo';
+
+//Demo
+import Demo from './componentLib/Demo/NavigatorTop';
 
 export default class LearnComponent extends Component {
 	onPress = (callback) => {
@@ -53,4 +58,4 @@ const styles = StyleSheet.create({
 		backgroundColor: '#F5FCFF',
 	},
 });
-AppRegistry.registerComponent('LearnComponent', () => NavBarDemo);
+AppRegistry.registerComponent('LearnComponent', () => TabBarDemo);
