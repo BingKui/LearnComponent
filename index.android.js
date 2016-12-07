@@ -30,6 +30,9 @@ import NavigatorDemo from './componentLib/Navigator/Demo';
 //Demo
 import Demo from './componentLib/Demo/NavigatorTop';
 
+//引入公共顶部导航测试
+import HeaderDemo from './componentLib/HeaderNavBar/Demo';
+
 export default class LearnComponent extends Component {
 	onPress = (callback) => {
 		this.timer = setTimeout(() => {
@@ -58,4 +61,4 @@ const styles = StyleSheet.create({
 		backgroundColor: '#F5FCFF',
 	},
 });
-AppRegistry.registerComponent('LearnComponent', () => TabBarDemo);
+AppRegistry.registerComponent('LearnComponent', () => HeaderDemo);
