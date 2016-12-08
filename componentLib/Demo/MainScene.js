@@ -12,14 +12,14 @@ import {
 	Image
 } from 'react-native';
 
-import ArticleList from './ArticleList'
+import ArticleList from './ArticleList';
+import Header from '../HeaderNavBar/HeaderNavBar';
+
 export default class MainScene extends Component {
 	render() {
 		return (
 			<View>
-		        <View style={styles.header}>
-			        <Text style={styles.headerTitle}>uiseed.cn</Text>
-		        </View>
+		        <Header title='uiseed.cn' bgColor='#333'></Header>
 		        <ArticleList navigator={this.props.navigator}></ArticleList>
       		</View>
 		)

@@ -16,6 +16,8 @@ import {
 
 const REQUEST_URL_ITEM = 'http://uiseed.cn/?json=1&p='; //数据地址
 
+import Header from '../HeaderNavBar/HeaderNavBar';
+
 class ArticleDetail extends Component {
 	constructor(props) {
 		super(props);
@@ -58,12 +60,7 @@ class ArticleDetail extends Component {
 		} = this.state;
 		return (
 			<View style={styles.container}>
-		        <View style={styles.header}>
-		        	<TouchableHighlight underlayColor='#b8e1f7' style={styles.back} onPress={this._onPress}>
-			            <Image style={styles.back} source={require('../../image/back.png')}/>
-			        </TouchableHighlight>
-			        <Text style={styles.headerTitle}>详情</Text>
-		        </View>
+		        <Header left title='详情' onPressLeft={this._onPress}></Header>
 		        <ScrollView contentContainerStyle={styles.contentContainer}>
 			        <Text style={styles.welcome}>
 			          	{this.returnContent(flag, content)}
@@ -73,6 +70,12 @@ class ArticleDetail extends Component {
 		);
 	}
 }
+/**<View style={styles.header}>
+	<TouchableHighlight underlayColor='#b8e1f7' style={styles.back} onPress={this._onPress}>
+        <Image style={styles.back} source={require('../../image/back.png')}/>
+    </TouchableHighlight>
+    <Text style={styles.headerTitle}>详情</Text>
+</View>*/
 let Dimensions = require("Dimensions");
 let _width = Dimensions.get('window').width;
 const styles = StyleSheet.create({

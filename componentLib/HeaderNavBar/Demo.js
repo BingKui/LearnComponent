@@ -17,7 +17,7 @@ class Demo extends Component {
 	};
 	render() {
 		return (
-			<HeaderNavBar left right onPressLeft={this._onPress}/>
+			<HeaderNavBar left onPressLeft={this._onPress} title='这个是title'/>
 		);
 	}
 }
