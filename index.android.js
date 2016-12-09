@@ -19,7 +19,7 @@ import ListViewSimple from './componentLib/ListViewSimple/ListViewSimple';
 //引入公共模块
 import NavigationSimple from './componentLib/NavigationSimple/NavigationSimple';
 
-import Btn from './componentLib/Btn/Button';
+import BtnDemo from './componentLib/Btn/BtnDemo';
 
 import TabBarDemo from './componentLib/TabBarSimple/Demo';
 
@@ -33,32 +33,23 @@ import Demo from './componentLib/Demo/NavigatorTop';
 //引入公共顶部导航测试
 import HeaderDemo from './componentLib/HeaderNavBar/Demo';
 
+//引入Modal组件测试
+import ModalDemo from './componentLib/ModalSimple/ModalSimple';
+import ModalDemo2 from './componentLib/ModalSimple/Demo';
+
+//Toast提示测试
+import ToastDemo from './componentLib/Tips/Demo';
+
+//donghua
+import AnimateTip from './componentLib/Tips/Tips';
+
 export default class LearnComponent extends Component {
-	onPress = (callback) => {
-		this.timer = setTimeout(() => {
-			callback();
-			alert('执行结束！');
-		}, 3000);
-	}
-	componentWillUnmount() {
-		// 如果存在this.timer，则使用clearTimeout清空。
-		// 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
-		this.timer && clearTimeout(this.timer);
-	}
 	render() {
 		return (
-			<View style={styles.container}>
-				<Btn onPress={this.onPress} text="确定"></Btn>
-			</View>
+			<View/>
 		);
 	}
 }
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#F5FCFF',
-	},
-});
-AppRegistry.registerComponent('LearnComponent', () => HeaderDemo);
+const styles = StyleSheet.create({});
+
+AppRegistry.registerComponent('LearnComponent', () => ToastDemo);
