@@ -51,7 +51,7 @@ class ArticleDetail extends Component {
 		}
 	}
 	returnContent = (flag, content) => {
-		return flag ? content.content : '加载中...';
+		return flag ? content.date : '加载中...';
 	}
 	render() {
 		const {

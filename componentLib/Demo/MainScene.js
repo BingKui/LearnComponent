@@ -19,7 +19,7 @@ export default class MainScene extends Component {
 	render() {
 		return (
 			<View>
-		        <Header title='uiseed.cn' bgColor='#333'></Header>
+		        <Header title='uiseed.cn'></Header>
 		        <ArticleList navigator={this.props.navigator}></ArticleList>
       		</View>
 		)
