@@ -33,7 +33,8 @@ class Tips extends Component {
 		super(props);
 		this.state = {
 			top: new Animated.Value(-45),
-			flag: false
+			flag: false,
+			type: this.props.type
 		};
 	}
 	static defaultProps = {
@@ -46,14 +47,8 @@ class Tips extends Component {
 		msg: PropTypes.string.isRequired, //提示信息
 		timeout: PropTypes.number //关闭时间，默认2000毫秒
 	}
-	componentDidMount() {
-		this.timer = setTimeout(() => {
-			this.setState({
-				flag: false,
-				top: new Animated.Value(-45),
-			});
-		}, this.props.timeout + 800);
-		Animated.sequence([
+	componentDidUpdate() {
+		let _animate = Animated.sequence([
 			Animated.timing(this.state.top, {
 				toValue: 0, // 目标值
 				duration: 400, // 动画时间
@@ -65,7 +60,15 @@ class Tips extends Component {
 				duration: 400, // 动画时间
 				easing: Easing.linear // 缓动函数
 			})
-		]).start();
+		]);
+		if (this.state.flag) {
+			_animate.start();
+			this.timer = setTimeout(() => {
+				this.setState({
+					flag: false
+				});
+			}, this.props.timeout + 800);
+		}
 	}
 	componentWillUnmount() {
 		this.timer && clearTimeout(this.timer);
@@ -73,9 +76,14 @@ class Tips extends Component {
 	getIconUri = () => {
 		const {
 			type
-		} = this.props;
+		} = this.state;
 		const _arr = ['success', 'info', 'help', 'warning', 'wrong'];
 		return _iconArray[_arr.indexOf(type)];
+	}
+	changeType = (_type) => {
+		this.setState({
+			type: _type
+		});
 	}
 	open = () => {
 		this.setState({
@@ -83,20 +91,15 @@ class Tips extends Component {
 		});
 	}
 	render() {
-		if (this.state.flag) {
-			return (
-				<Animated.View style={[styles.tip, {top:this.state.top}]}>
-					<Image 
-		            	source={{uri: this.getIconUri()}}
-		            	resizeMode={Image.resizeMode.contain}
-	          			style={styles.thumbnail}/>
-					<Text style={styles.text}>{this.props.msg}</Text>
-				</Animated.View>
-			);
-		} else {
-			return (<View />);
-		}
-
+		return (
+			<Animated.View style={[styles.tip, {top:this.state.top}]}>
+				<Image 
+	            	source={{uri: this.getIconUri()}}
+	            	resizeMode={Image.resizeMode.contain}
+	      			style={styles.thumbnail}/>
+				<Text style={styles.text}>{this.props.msg}</Text>
+			</Animated.View>
+		);
 	}
 }
 
@@ -110,7 +113,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		flexDirection: 'row',
-		overflow: 'hidden'
+		overflow: 'hidden',
+		zIndex: 9999
 	},
 	thumbnail: {
 		width: 26,
