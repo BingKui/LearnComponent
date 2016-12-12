@@ -82,7 +82,7 @@ class Tips extends Component {
 	}
 	changeType = (_type) => {
 		this.setState({
-			type: _type
+			type: _type ? _type : 'success'
 		});
 	}
 	open = () => {

@@ -60,17 +60,18 @@ class Demo extends Component {
 	render() {
 		return (
 			<View>
-				<Tip ref='tip' type='success' msg='那么用多个变量，或者用个数组来保存引'></Tip>
+				<Tip ref='tip' type='success' msg='这个是提示内容！'></Tip>
 				<ToastSuccessAndError ref='toast_su' successMsg='chenggong' errorMsg='cuowu'></ToastSuccessAndError>
-				<Toast ref='toast' type='success' msg='修改用户资料成功！'></Toast>
+				<Toast ref='toast' type='success' msg='这个是提示内容！'></Toast>
 				<Button onPress = {this._successOnPress} btnText = "Success" type='line' bgcolor='#09BB07'/>
 				<Button onPress = {this._errorOnPress} btnText = "Error" type='line' bgcolor='#d81e06'/>
+				<Text style={styles.tipinfo}>输入相应的类型，弹出提示，类型一共五种（success,wrong,help,info,warning），默认为：success</Text>
 				<TextInput
 		          style={{height: 40}}
 		          placeholder="输入tip类型"
 		          onChangeText={(tipType) => this.setState({tipType})}
 		        />
-				<Button onPress = {this._tipOnPress} btnText = "Tip" type='line' bgcolor='#d81e06'/>
+				<Button onPress = {this._tipOnPress} btnText = "Tip" type='line'/>
 				<TextInput
 		          style={{height: 40}}
 		          placeholder="输入toast类型"
@@ -85,6 +86,10 @@ class Demo extends Component {
 const styles = StyleSheet.create({
 	notCon: {
 		height: 200
+	},
+	tipinfo: {
+		padding: 10,
+		fontSize: 20
 	}
 });
 
