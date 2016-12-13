@@ -16,6 +16,7 @@ import Toast from './Toast';
 import Button from '../Btn/Button';
 import ToastSuccessAndError from './ToastSuccessAndError';
 import Tip from './Tips';
+import Alert from './Alert';
 
 class Demo extends Component {
 	constructor(props) {
@@ -52,6 +53,12 @@ class Demo extends Component {
 			callback();
 		}, 2000);
 	}
+	_alertOnPress = (callback) => {
+		// this.refs.alert.changeType(this.state.toastType);
+		this.refs.alert.open();
+		callback();
+	}
+
 	componentWillUnmount() {
 		// 如果存在this.timer，则使用clearTimeout清空。
 		// 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
@@ -61,8 +68,10 @@ class Demo extends Component {
 		return (
 			<View>
 				<Tip ref='tip' type='success' msg='这个是提示内容！'></Tip>
-				<ToastSuccessAndError ref='toast_su' successMsg='chenggong' errorMsg='cuowu'></ToastSuccessAndError>
+				<ToastSuccessAndError ref='toast_su' successMsg='受理成功' errorMsg='系统出错'></ToastSuccessAndError>
 				<Toast ref='toast' type='success' msg='这个是提示内容！'></Toast>
+				<Alert ref='alert' type='提示信息' btnText='确定' msg='这个是提示内容！'></Alert>
+
 				<Button onPress = {this._successOnPress} btnText = "Success" type='line' bgcolor='#09BB07'/>
 				<Button onPress = {this._errorOnPress} btnText = "Error" type='line' bgcolor='#d81e06'/>
 				<Text style={styles.tipinfo}>输入相应的类型，弹出提示，类型一共五种（success,wrong,help,info,warning），默认为：success</Text>
@@ -78,6 +87,7 @@ class Demo extends Component {
 		          onChangeText={(toastType) => this.setState({toastType})}
 		        />
 				<Button onPress = {this._toastOnPress} btnText = "Toast" type='line'/>
+				<Button onPress = {this._alertOnPress} btnText = "Alert" type='line'/>
 			</View>
 		);
 	}
