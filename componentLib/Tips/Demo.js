@@ -10,6 +10,7 @@ import {
 	Text,
 	TouchableHighlight,
 	TextInput,
+	AlertIOS,
 } from 'react-native';
 
 import Toast from './Toast';
@@ -17,6 +18,7 @@ import Button from '../Btn/Button';
 import ToastSuccessAndError from './ToastSuccessAndError';
 import Tip from './Tips';
 import Alert from './Alert';
+import Confirm from './Confirm';
 
 class Demo extends Component {
 	constructor(props) {
@@ -58,7 +60,10 @@ class Demo extends Component {
 		this.refs.alert.open();
 		callback();
 	}
-
+	_confirmOnPress = (callback) => {
+		this.refs.confirm.open();
+		callback();
+	}
 	componentWillUnmount() {
 		// 如果存在this.timer，则使用clearTimeout清空。
 		// 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
@@ -70,7 +75,8 @@ class Demo extends Component {
 				<Tip ref='tip' type='success' msg='这个是提示内容！'></Tip>
 				<ToastSuccessAndError ref='toast_su' successMsg='受理成功' errorMsg='系统出错'></ToastSuccessAndError>
 				<Toast ref='toast' type='success' msg='这个是提示内容！'></Toast>
-				<Alert ref='alert' type='提示信息' btnText='确定' msg='这个是提示内容！'></Alert>
+				<Alert ref='alert' title='提示信息' btnText='确定' msg='这个是提示内容！'></Alert>
+				<Confirm ref='confirm' leftFunc={() => {}} rightFunc={() => {}} btnLeftText='确定' btnRightText='取消' title='Confirm' msg='这个是提示内容！'></Confirm>
 
 				<Button onPress = {this._successOnPress} btnText = "Success" type='line' bgcolor='#09BB07'/>
 				<Button onPress = {this._errorOnPress} btnText = "Error" type='line' bgcolor='#d81e06'/>
@@ -88,6 +94,7 @@ class Demo extends Component {
 		        />
 				<Button onPress = {this._toastOnPress} btnText = "Toast" type='line'/>
 				<Button onPress = {this._alertOnPress} btnText = "Alert" type='line'/>
+				<Button onPress = {this._confirmOnPress} btnText = "Confirm" type='line'/>
 			</View>
 		);
 	}
