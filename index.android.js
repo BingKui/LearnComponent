@@ -43,6 +43,9 @@ import ToastDemo from './componentLib/Tips/Demo';
 //donghua
 import AnimateTip from './componentLib/Tips/Tips';
 
+//输入框
+import InputDemo from './componentLib/Input/Demo';
+
 export default class LearnComponent extends Component {
 	render() {
 		return (
@@ -52,4 +55,4 @@ export default class LearnComponent extends Component {
 }
 const styles = StyleSheet.create({});
 
-AppRegistry.registerComponent('LearnComponent', () => ToastDemo);
+AppRegistry.registerComponent('LearnComponent', () => InputDemo);
