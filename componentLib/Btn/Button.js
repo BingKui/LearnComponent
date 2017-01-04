@@ -138,8 +138,7 @@ const styles = StyleSheet.create({
 		borderRadius: 3,
 		alignItems: 'center',
 		justifyContent: 'center',
-		margin: 5,
-		alignSelf: 'flex-start'
+		margin: 5
 	},
 	btnText: {
 		color: '#fff',
