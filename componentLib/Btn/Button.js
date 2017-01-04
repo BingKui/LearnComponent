@@ -58,13 +58,13 @@ class Button extends Component {
 		if (size === 'big') {
 			_re = {
 				height: 55,
-				width: 140,
+				padding: 10,
 			};
 		}
 		if (size === 'small') {
 			_re = {
 				height: 35,
-				width: 60,
+				padding: 5,
 			};
 		}
 		return _re;
